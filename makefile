@@ -14,6 +14,7 @@ configure-stamp: patch-stamp
 	(cd $(pq_module_name) && ./configure --prefix=$(part_dir)) && touch $@
 
 patch-stamp: unpack-stamp
+	patch -p0 < ../fix-gets-error.patch
 	touch $@
 
 unpack-stamp:
